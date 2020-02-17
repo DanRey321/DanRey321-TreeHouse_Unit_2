@@ -2,9 +2,13 @@
 Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
-   
+
+
 // Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
 
+const limitPerPage = 10;
+const studentList = document.getElementsByClassName('student-item cf');
+const studentListByQuery = document.querySelectorAll('.student-item');
 
 /*** 
    Add your global variables that store the DOM elements you will 
@@ -17,7 +21,38 @@ FSJS project 2 - List Filter and Pagination
    scoped to that function.
 ***/
 
+//for(let i = 0; i < studentListByQuery.length; i += 1){
+ ///  console.log(studentListByQuery[i]);
+//}
+
+//for(let i = 0; i < studentList.length; i += 1){
+  //console.log(studentList[i]);
+//}
+
+
+
+
 const showPage = (list, page) => {
+
+   
+
+   //Hides all list Items
+   for(let i = 0; i < studentList.length; i += 1){
+      listToHide = studentList[i];
+      listToHide.style.display = 'none';
+   }
+
+   //get ending and starting index values of page selected
+   let start = (page * limitPerPage) - limitPerPage;
+   let end = page * limitPerPage;
+
+   //shows list items of page that was passed in
+   for(let j = start; j < end; j += 1){
+      listToShow = list[j];
+      listToShow.style.display = 'block'
+   }
+
+
    /*
    Loop over items in the list parameter
    -- If the index of a list item is >= the index of the first
@@ -25,9 +60,8 @@ const showPage = (list, page) => {
    -- && the list item index is <= the index of the last item
    that should be shown on the page, show it
    */
-
-
 }
+
 
 
 /*** 
@@ -47,11 +81,40 @@ const showPage = (list, page) => {
 
 
 const appendPageLinks = (list) => {
+
+   const pageNumber = list.length / limitPerPage;
+
+   const pageDiv = document.createElement('div');
+   const pageUL = document.createElement('ul');
+   pageDiv.className = 'pagination';
+   pageDiv.appendChild(pageUL);
+
+   //create for loop for to li and a tag with a page number text
+   for(let i = 0; i < pageNumber; i += 1){
+      const pageLi = createElement('li');
+      const pageTag = createElement('a');
+      pageUL.appendChild(pageLi);
+      pageUL.appendChild(pageTag);
+
+      //
+
+   }
+
+   pageUL.addEventListener('clicked', (e) => {
+      //showPage(...);
+
+
+   });
+
+   /*** 
+   Create the `appendPageLinks function` to generate, append, and add 
+   functionality to the pagination buttons.
+   ***/
    /*
    1. Determine how many pages are needed for the list by dividing the
-   total number of list items by the max number of items per page
-   2. Create a div, give it the “pagination” class, and append it to the .page div
-   3. Add a ul to the “pagination” div to store the pagination links
+   total number of list items by the max number of items per page ***********
+   2. Create a div, give it the “pagination” class, and append it to the .page div *****
+   3. Add a ul to the “pagination” div to store the pagination links *******8
    4. for every page, add li and a tags with the page number text
    5. Add an event listener to each a tag. When they are clicked
    call the showPage function to display the appropriate page
@@ -61,10 +124,7 @@ const appendPageLinks = (list) => {
    */
    }
 
-/*** 
-   Create the `appendPageLinks function` to generate, append, and add 
-   functionality to the pagination buttons.
-***/
+
 
 
 
