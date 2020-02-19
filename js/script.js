@@ -44,9 +44,9 @@ const appendbuttonLinks = (list) => {
    buttonsDiv.appendChild(buttonsUl);
    
 
-   const pageNumber = list.length / limitPerPage; //total # of list items / max items per page
-   //console.log(pageNumber); test current page
-   for(let i = 0; i < pageNumber; i += 1){
+   const numberOfPages = list.length / limitPerPage; //total # of list items / max items per page
+   //console.log(numberOfPages); test current page
+   for(let i = 0; i < numberOfPages; i += 1){
       const buttonLi = document.createElement('li');
       const buttonTag = document.createElement('a');
       buttonsUl.appendChild(buttonLi);
