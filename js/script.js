@@ -70,11 +70,10 @@ const appendbuttonLinks = (list) => {
       }
       
       //Adds active to page selected
-      const pageSelected = event.target;
-      pageSelected.className = 'active';
+      const pageSelected = event.target.className = 'active';
       
       //call showPage with new page selected.
-      showPage(list, pageSelected.innerText);
+      showPage(list, event.target.innerText);
 
    });
 
