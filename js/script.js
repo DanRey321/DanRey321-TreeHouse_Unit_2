@@ -39,7 +39,7 @@ const appendbuttonLinks = (list) => {
    const divOnPage = document.querySelector('div.page'); 
    const buttonsDiv = document.createElement('div'); //div created for new buttons
    const buttonsUl = document.createElement('ul');  //ul created for buttons dive created above
-   buttonsDiv.className = 'pagination'; //'pagination' given as className
+   buttonsDiv.className = 'pagination'; 
    divOnPage.appendChild(buttonsDiv); 
    buttonsDiv.appendChild(buttonsUl);
    
@@ -55,7 +55,7 @@ const appendbuttonLinks = (list) => {
       buttonTag.href = '#';
       buttonTag.textContent = i + 1;
      
-      if(i === 0){
+      if(i === 0){ //default active page 1 or index 0
          buttonTag.className = 'active';
       }
       
@@ -64,13 +64,13 @@ const appendbuttonLinks = (list) => {
    buttonsUl.addEventListener('click', (e) => {
    
       //Removes 'active' from current page
-      let currentPage = buttonsUl.querySelectorAll('a');
+      const currentPage = buttonsUl.querySelectorAll('a');
       for(let j = 0; j < currentPage.length; j += 1){
       currentPage[j].className = '';
       }
       
       //Adds active to page selected
-      let pageSelected = event.target;
+      const pageSelected = event.target;
       pageSelected.className = 'active';
       
       //call showPage with new page selected.
